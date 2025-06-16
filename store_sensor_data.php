@@ -1,8 +1,7 @@
 <?php
 header('Content-Type: application/json');
 
-// Connect to MySQL
-$conn = mysqli_connect("localhost", "root", "", "cmu_ur");
+include 'db_connection.php';
 if (!$conn) {
     http_response_code(500);
     echo json_encode(["error" => "DB connection failed"]);

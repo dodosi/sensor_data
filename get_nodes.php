@@ -1,13 +1,5 @@
 <?php
-$host = 'localhost';
-$db   = 'cmu_ur';
-$user = 'root';
-$pass = '';
-
-$conn = new mysqli($host, $user, $pass, $db);
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+include 'db_connection.php';
 
 $sql = "SELECT DISTINCT node_id FROM sensor_readings ORDER BY node_id ASC";
 $result = $conn->query($sql);

@@ -1,13 +1,5 @@
 <?php
-$host = 'localhost';
-$db   = 'cmu_ur';
-$user = 'root'; // replace with your DB username
-$pass = '';
-
-$conn = new mysqli($host, $user, $pass, $db);
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+include 'db_connection.php';
 
 // List of your 13 node IDs
 $nodes = [

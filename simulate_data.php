@@ -1,15 +1,5 @@
 <?php
-// simulate_data.php
-
-$host = 'localhost';
-$db   = 'cmu_ur';
-$user = 'root'; // replace with your DB username
-$pass = '';
-
-$conn = new mysqli($host, $user, $pass, $db);
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+include 'db_connection.php';
 
 // Function to generate a random float between min and max with 1 decimal place
 function rand_float($min, $max) {

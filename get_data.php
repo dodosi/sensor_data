@@ -1,11 +1,7 @@
 <?php
-$mysqli = new mysqli("localhost", "root", "", "cmu_ur");
+include 'db_connection.php';
 
-if ($mysqli->connect_error) {
-    die("Connection failed: " . $mysqli->connect_error);
-}
-
-$nodeId = isset($_GET['node_id']) ? $mysqli->real_escape_string($_GET['node_id']) : '';
+$nodeId = isset($_GET['node_id']) ? $conn->real_escape_string($_GET['node_id']) : '';
 
 $query = "SELECT timestamp, data  FROM sensor_readings";
 if (!empty($nodeId)) {
@@ -13,7 +9,7 @@ if (!empty($nodeId)) {
 }
 $query .= " ORDER BY timestamp DESC LIMIT 20";
 //echo $query;
-$result = $mysqli->query($query);
+$result = $conn->query($query);
 
 $data = [];
 
